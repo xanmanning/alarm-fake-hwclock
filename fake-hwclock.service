@@ -7,6 +7,7 @@ ExecStart=/opt/fake-hwclock start
 ExecStop=/opt/fake-hwclock stop
 TimeoutSec=0
 RemainAfterExit=yes
+User=root
 
 [Install]
 WantedBy=multi-user.target
