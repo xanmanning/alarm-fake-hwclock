@@ -1,9 +1,9 @@
 #!/bin/bash
 
 MYSELF=$0
+MYTIME=$(date -r $MYSELF)
 
 setclock() {
-	MYTIME=$(date -r $MYSELF)
 	date --set="$MYTIME" &>/dev/null
 }
 
