@@ -4,8 +4,8 @@ After=ntpd.service
 
 [Service]
 Type=forking
-ExecStart=/opt/fake-hwclock start
-ExecStop=/opt/fake-hwclock stop
+ExecStart=/usr/local/fake-hwclock
+ExecStop=/usr/local/fake-hwclock
 TimeoutSec=0
 RemainAfterExit=yes
 User=root
