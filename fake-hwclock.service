@@ -1,6 +1,6 @@
 [Unit]
 Description=Fake Hardware Clock
-After=ntpd.service
+After=dbus.service
 
 [Service]
 Type=forking
