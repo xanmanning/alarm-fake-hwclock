@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8)
-project(fake-hwclock)
-add_executable(fake-hwclock fake-hwclock.c)
-install(PROGRAMS ${project_name} DESTINATION usr/local/bin)
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
+PROJECT(fake-hwclock)
+ADD_EXECUTABLE(fake-hwclock fake-hwclock.c)
+INSTALL(TARGETS ${project_name} DESTINATION bin)
