@@ -1,9 +1,33 @@
 alarm-fake-hwclock
 ==================
 
-**Written by Xan Manning**
+**Written by Xan Manning** inspired by `fake-hwclock` by Steve McIntyre
 
-Dead simple C program for Arch Linux Arm on Raspberry Pi that works like fake-hwclock on Raspbian.
+Save/restore system clock on machines without working RTC hardware.
+
+Dead simple C program initially designed for Arch Linux Arm that works like fake-hwclock on Debian.
+
+
+
+Installation
+------------
+
+Requires `CMake` to build. Suggested packages: `ntp` and `cron`.
+
+	CMake -DCMAKE_INSTALL_PREFIX=/usr .
+	make
+	make install
+
+
+To set system time on start up and save system time on halt, enable the systemd service:
+
+	systemctl enable fake-hwclock.service
+
+
+To keep `fake-hwclock` up to date in case of power failure, install and enable `ntp` and add the following job to your root `crontab` (`sudo crontab -e`):
+
+	*/15 * * * * /usr/bin/fake-hwclock
+
 
 
 License
