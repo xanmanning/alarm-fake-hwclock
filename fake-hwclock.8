@@ -4,7 +4,10 @@ fake-hwclock \- Set/Save fake hardware clock
 .SH SYNOPSIS
 .B fake-hwclock
 .SH DESCRIPTION
+Many embedded Linux systems do not have a functional hardware clock; either they do not feature a hardware clock or do not have access to the hardware clock due to fault or no battery. In such cases every power cycle resets the system time to the UNIX Epoch (00:00:00 UTC 1 January 1970).
 .SH EXIT STATUS
 fake-hwclock returns a zero exit status if it successfully saves or sets the system time. Non zero is returned in the case of failure (for example when not run by root).
 .SH AUTHOR
 Xan Manning (hello (at) xan-manning.co.uk)
+.SH BUGS
+fake-hwclock saves the system time at system halt and restores it on next boot, this means that the restored time is merely an approximation of time and not the accurate time. This method avoids the clock being reset to 00:00:00 UTC 1 January 1970 but can be confusing when the system has been down for days.To avoid confusion it is highly recommended that fake-hwclock is run in conjunction with ntp/openntp.
