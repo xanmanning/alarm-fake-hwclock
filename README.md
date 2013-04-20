@@ -5,7 +5,7 @@ alarm-fake-hwclock
 
 Save/restore system clock on machines without working RTC hardware.
 
-Dead simple C program initially designed for Arch Linux Arm that works like fake-hwclock on Debian.
+Dead simple C program initially designed for Arch Linux ARM that works like fake-hwclock on Debian.
 
 
 
