@@ -5,7 +5,7 @@ fake-hwclock \- Set/Save fake hardware clock
 .B fake-hwclock
 .SH DESCRIPTION
 Many embedded Linux systems do not have a functional hardware clock; either they do not feature a hardware clock or do not have access to the hardware clock due to fault or no battery. In such cases every power cycle resets the system time to the UNIX Epoch (00:00:00 UTC 1 January 1970).
-.B It is possible to overcome a non functioning hardware clock with NTP however this requires a network connection to set the correct time. fake-hwclock works by checking the current system time and comparing it to the program files modification timestamp. If the system time is greater than the modification timestamp, fake-hwclock updates its own modification timestamp to system time. Should the modification timestamp be greater than the system time, the system time is updated to match the modification timestamp.
+.PP It is possible to overcome a non functioning hardware clock with NTP however this requires a network connection to set the correct time. fake-hwclock works by checking the current system time and comparing it to the program files modification timestamp. If the system time is greater than the modification timestamp, fake-hwclock updates its own modification timestamp to system time. Should the modification timestamp be greater than the system time, the system time is updated to match the modification timestamp.
 .SH EXIT STATUS
 fake-hwclock returns a zero exit status if it successfully saves or sets the system time. Non zero is returned in the case of failure (for example when not run by root).
 .SH AUTHOR
