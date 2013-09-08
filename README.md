@@ -14,7 +14,7 @@ Installation
 
 Requires `CMake` to build. Suggested packages: `ntp` and `cron`.
 
-	CMake -DCMAKE_INSTALL_PREFIX=/usr .
+	CMake -DCMAKE_INSTALL_PREFIX=/usr/local .
 	make
 	make install
 
@@ -26,7 +26,7 @@ To set system time on start up and save system time on halt, enable the systemd 
 
 To keep `fake-hwclock` up to date in case of power failure, install and enable `ntp` and add the following job to your root `crontab` (`sudo crontab -e`):
 
-	*/15 * * * * /usr/bin/fake-hwclock
+	*/15 * * * * /usr/local/bin/fake-hwclock
 
 
 
