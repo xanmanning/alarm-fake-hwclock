@@ -4,8 +4,8 @@ After=dbus.service
 
 [Service]
 Type=forking
-ExecStart=/usr/bin/fake-hwclock
-ExecStop=/usr/bin/fake-hwclock
+ExecStart=/usr/local/bin/fake-hwclock
+ExecStop=/usr/local/bin/fake-hwclock
 TimeoutSec=0
 RemainAfterExit=yes
 User=root
