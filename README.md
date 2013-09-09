@@ -13,6 +13,8 @@ It is recommended to install this via the ArchLinux AUR, see https://aur.archlin
 Installation (from AUR)
 -----------------------
 
+Requires `CMake` to build.
+
 Please follow the instructions from https://wiki.archlinux.org/index.php/Arch_User_Repository#Installing_packages
 
 
