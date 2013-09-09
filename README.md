@@ -7,11 +7,18 @@ Save/restore system clock on machines without working RTC hardware.
 
 Dead simple C program initially designed for Arch Linux ARM that works like fake-hwclock on Debian.
 
-See https://aur.archlinux.org/packages/fake-hwclock-git/ for a package in the ArchLinux AUR.
+It is recommended to install this via the ArchLinux AUR, see https://aur.archlinux.org/packages/fake-hwclock-git/ for a package in the ArchLinux AUR.
 
 
-Installation
-------------
+Installation (from AUR)
+-----------------------
+
+Please follow the instructions from https://wiki.archlinux.org/index.php/Arch_User_Repository#Installing_packages
+
+
+
+Installation (not using AUR)
+----------------------------
 
 Requires `CMake` to build. Suggested packages: `ntp` and `cron`.
 
