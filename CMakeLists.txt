@@ -1,6 +1,0 @@
-CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
-PROJECT(fake-hwclock)
-ADD_EXECUTABLE(fake-hwclock fake-hwclock.c)
-INSTALL(PROGRAMS fake-hwclock DESTINATION bin)
-INSTALL(FILES systemd/fake-hwclock.service DESTINATION lib/systemd/system)
-INSTALL(FILES man/fake-hwclock.8 DESTINATION share/man/man8)
