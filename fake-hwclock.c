@@ -3,7 +3,8 @@
 #include <utime.h>
 #include <sys/stat.h>
 
-int main (int argc, char *argv[]) {
+int main (int argc, char *argv[]) 
+{
 	struct stat temp;
 	struct utimbuf time_update;
 	const char *timefile = argv[0];
@@ -21,13 +22,16 @@ int main (int argc, char *argv[]) {
 
 	time_store = temp.st_mtime;
 
-	if(time_store > current_time) {
+	if(time_store > current_time) 
+	{
 		time_t timebuffer = time_store;
+		printf("Setting Clock.");
 		sprintf(date_command, "%s'%s'", raw_date_command, ctime(&timebuffer));
 		system(date_command);
 	} else {
 		time_update.actime = temp.st_atime;
 		time_update.modtime = time(NULL);
+		printf("Saving current time.");
 		utime(timefile, &time_update);
 	}
 
