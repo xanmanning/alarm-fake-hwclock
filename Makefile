@@ -1,6 +1,7 @@
 TARGET = fake-hwclock
 SOURCES = fake-hwclock.c
-BINDIR = /usr/bin
+PREFIX = $(DESTDIR)/usr
+BINDIR = $(PREFIX)/bin
 
 all: $(TARGET)
 
