@@ -1,6 +1,8 @@
 [Unit]
 Description=Fake Hardware Clock
-After=dbus.service
+Documentation=man:fake-hwclock(8)
+DefaultDependencies=no
+Before=sysinit.target
 
 [Service]
 Type=forking
@@ -11,4 +13,4 @@ RemainAfterExit=yes
 User=root
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=sysinit.target
