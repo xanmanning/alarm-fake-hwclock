@@ -2,15 +2,14 @@
 Description=Fake Hardware Clock
 Documentation=man:fake-hwclock(8)
 DefaultDependencies=no
-Before=sysinit.target
+Before=systemd-journald.service
+Conflicts=shutdown.target
 
 [Service]
-Type=forking
+Type=oneshot
 ExecStart=/usr/bin/fake-hwclock
 ExecStop=/usr/bin/fake-hwclock
-TimeoutSec=0
 RemainAfterExit=yes
-User=root
 
 [Install]
-WantedBy=sysinit.target
+WantedBy=local-fs-pre.target
