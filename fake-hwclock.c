@@ -2,14 +2,12 @@
 #include <time.h>
 #include <utime.h>
 #include <sys/stat.h>
+#include <sys/time.h>
 
 int main (int argc, char *argv[]) 
 {
 	struct stat temp;
-	struct utimbuf time_update;
 	const char *timefile = argv[0];
-	char date_command[100];
-	char raw_date_command[50] = "date --set=";
 	time_t current_time;
 	time_t time_store;
 
@@ -24,14 +22,16 @@ int main (int argc, char *argv[])
 
 	if(time_store > current_time) 
 	{
-		time_t timebuffer = time_store;
-		printf("Setting Clock.");
-		sprintf(date_command, "%s'%s'", raw_date_command, ctime(&timebuffer));
-		system(date_command);
+		struct timeval sys_update;
+		sys_update.tv_sec =time_store;
+		sys_update.tv_usec=0;
+		printf("Setting Clock.\n");
+		settimeofday(&sys_update,NULL);
 	} else {
+		struct utimbuf time_update;
 		time_update.actime = temp.st_atime;
 		time_update.modtime = time(NULL);
-		printf("Saving current time.");
+		printf("Saving current time.\n");
 		utime(timefile, &time_update);
 	}
 
