@@ -4,12 +4,18 @@
 #include <sys/stat.h>
 #include <sys/time.h>
 
+/* If the difference between the last known time and current time
+ * is greater than this amount, we assume the clock is broken
+ * and reset it. */
+static time_t max_diff = 60 * 60 * 24 * 365 * 10; /* ten years */
+
 int main (int argc, char *argv[]) 
 {
 	struct stat temp;
 	const char *timefile = argv[0];
 	time_t current_time;
 	time_t time_store;
+	time_t diff;
 
 	current_time = time(NULL);
 	if(current_time == ((time_t) - 1))
@@ -19,8 +25,9 @@ int main (int argc, char *argv[])
 		return 1;
 
 	time_store = temp.st_mtime;
+	diff = time_store - current_time;
 
-	if(time_store > current_time) 
+	if(time_store > current_time || diff > max_diff || diff < -max_diff)
 	{
 		struct timeval sys_update;
 		sys_update.tv_sec =time_store;
