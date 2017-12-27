@@ -22,6 +22,7 @@ Installation (not using AUR)
 
 Suggested packages: `ntp` and `cron`.
 
+	cmake .
 	make
 	make install
 
