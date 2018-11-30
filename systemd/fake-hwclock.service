@@ -4,12 +4,11 @@ Documentation=man:fake-hwclock(8)
 DefaultDependencies=no
 Before=systemd-journald.service
 Conflicts=shutdown.target
+Wants=fake-hwclock.timer
 
 [Service]
-Type=oneshot
+Type=simple
 ExecStart=/usr/bin/fake-hwclock
-ExecStop=/usr/bin/fake-hwclock
-RemainAfterExit=yes
 
 [Install]
 WantedBy=local-fs-pre.target

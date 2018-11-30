@@ -1,0 +1,6 @@
+[Unit]
+Description=Update fake hardware clock time
+PartOf=fake-hwclock.service
+
+[Timer]
+OnUnitActiveSec=15m
