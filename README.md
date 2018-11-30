@@ -20,20 +20,17 @@ Please follow the instructions from https://wiki.archlinux.org/index.php/Arch_Us
 Installation (not using AUR)
 ----------------------------
 
-Suggested packages: `ntp` and `cron`.
+Suggested packages: `ntp` and `cron` or enable `systemd-timesyncd`
 
 	make
 	make install
 
 
-To set system time on start up and save system time on halt, enable the systemd service:
+To set system time on start up and save system time on halt as well as run every 15 min,  enable the systemd service:
 
-	systemctl enable fake-hwclock.service
+	systemctl enable fake-hwclock
 
-
-To keep `fake-hwclock` up to date in case of power failure, install and enable `ntp` and add the following job to your root `crontab` (`sudo crontab -e`):
-
-	*/15 * * * * /usr/bin/fake-hwclock
+This will also activate a systemd timer unit that will run every 15 min.
 
 
 
