@@ -1,0 +1,12 @@
+[Unit]
+Description=Timed update of fake-hwclock
+After=fake-hwclock.service
+Wants=fake-hwclock-checkin.timer
+PartOf=fake-hwclock.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/fake-hwclock
+
+[Install]
+WantedBy=sysinit.target

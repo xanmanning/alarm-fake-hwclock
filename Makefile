@@ -13,7 +13,8 @@ install:
 	install -D $(TARGET) $(BINDIR)/$(TARGET)
 	install -d $(INIT)
 	install -m644 systemd/$(TARGET).service $(INIT)/$(TARGET).service
-	install -m644 systemd/$(TARGET).timer $(INIT)/$(TARGET).timer
+	install -m644 systemd/$(TARGET)-checkin.service $(INIT)/$(TARGET)-checkin.service
+	install -m644 systemd/$(TARGET)-checkin.timer $(INIT)/$(TARGET)-checkin.timer
 	gzip -9 man/$(TARGET).8
 	install -d $(DOCS)
 	install -m644 man/$(TARGET).8.gz $(DOCS)/$(TARGET).8.gz
