@@ -20,6 +20,6 @@ install:
 	install -m644 man/$(TARGET).8.gz $(DOCS)/$(TARGET).8.gz
 
 clean:
-	rm $(TARGET)
+	rm -f $(TARGET)
 
 .PHONY: install
