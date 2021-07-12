@@ -4,10 +4,11 @@ PREFIX = $(DESTDIR)/usr
 BINDIR = $(PREFIX)/bin
 INIT = $(PREFIX)/lib/systemd/system
 DOCS = $(PREFIX)/share/man/man8
+CC ?= gcc
 all: $(TARGET)
 
 $(TARGET):
-	gcc -o $(TARGET) $(SOURCES)
+	$(CC) -o $(TARGET) $(SOURCES)
 
 install:
 	install -D $(TARGET) $(BINDIR)/$(TARGET)
