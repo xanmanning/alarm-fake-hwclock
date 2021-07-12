@@ -12,4 +12,4 @@ ExecStart=/usr/bin/fake-hwclock
 ExecStop=/usr/bin/fake-hwclock
 
 [Install]
-WantedBy=local-fs-pre.target
+WantedBy=multi-user.target
