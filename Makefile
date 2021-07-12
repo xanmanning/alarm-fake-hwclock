@@ -5,10 +5,11 @@ BINDIR = $(PREFIX)/bin
 INIT = $(PREFIX)/lib/systemd/system
 DOCS = $(PREFIX)/share/man/man8
 CC ?= gcc
+LDFLAGS ?= 
 all: $(TARGET)
 
 $(TARGET):
-	$(CC) -o $(TARGET) $(SOURCES)
+	$(CC) -o $(TARGET) $(SOURCES) $(LDFLAGS)
 
 install:
 	install -D $(TARGET) $(BINDIR)/$(TARGET)
