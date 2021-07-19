@@ -9,10 +9,17 @@
  * and reset it. */
 static time_t max_diff = 60 * 60 * 24 * 365 * 10; /* ten years */
 
-int main (int argc, char *argv[]) 
+int main (int argc, char *argv[])
 {
 	struct stat temp;
-	const char *timefile = argv[0];
+	const char *timefile;
+	/* The time is stored in the creation and modification date of a file.
+	 * If no specific file is passed, use the executable itself.
+	 */
+	if (argc > 1)
+		timefile = argv[1];
+	else
+		timefile = argv[0];
 	time_t current_time;
 	time_t time_store;
 	time_t diff;
