@@ -11,4 +11,4 @@ ExecStart=/usr/bin/fake-hwclock
 ExecStop=/usr/bin/fake-hwclock
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=basic.target
