@@ -8,7 +8,6 @@ Wants=fake-hwclock.timer
 [Service]
 Type=simple
 ExecStart=/usr/bin/fake-hwclock
-ExecStop=/usr/bin/fake-hwclock
 
 [Install]
 WantedBy=basic.target

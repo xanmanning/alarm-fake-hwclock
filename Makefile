@@ -1,15 +1,15 @@
 TARGET = fake-hwclock
-SOURCES = fake-hwclock.c
+SOURCES = fake-hwclock.cpp NTPClient.cpp
 PREFIX ?= $(DESTDIR)/usr
 BINDIR = $(PREFIX)/bin
 INIT = $(PREFIX)/lib/systemd/system
 DOCS = $(PREFIX)/share/man/man8
-CC ?= gcc
-LDFLAGS ?= 
+CXX ?= g++
+LDFLAGS ?=
 all: $(TARGET)
 
 $(TARGET):
-	$(CC) -o $(TARGET) $(SOURCES) $(LDFLAGS)
+	$(CXX) -o $(TARGET) $(SOURCES) $(LDFLAGS)
 
 install:
 	install -D $(TARGET) $(BINDIR)/$(TARGET)
